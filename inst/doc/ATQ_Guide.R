@@ -1,16 +1,21 @@
 ## ---- include = FALSE---------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  warning = FALSE, message = FALSE
 )
 
+
 ## ----setup--------------------------------------------------------------------
+
 library(devtools)
 install_github("vjoshy/ATQ_Surveillance_Package")
 
 library(ATQ)
 
 ## ----populationSimulation-----------------------------------------------------
+
+set.seed(123)
 
 # Simulate 16 catchments of 80x80 squares and the number of schools they contain
 catchment <- catchment_sim(16, 80, dist_func = stats::rgamma, shape = 4.313, rate = 3.027)
@@ -60,8 +65,7 @@ dplyr::glimpse(absent_data)
 ## ----metrics, fig.height = 4, fig.width = 7-----------------------------------
 # Evaluate alarm metrics for epidemic detection
 # lag of 15
-alarms <- eval_metrics(absent_data, ScYr = 2:10, maxlag = 15, thres = seq(0.1,0.6,by = 0.05), 
-                      yr.weights = c(2:10)/sum(c(2:10)))
+alarms <- eval_metrics(absent_data, maxlag = 15, thres = seq(0.1,0.6,by = 0.05))
 
 summary(alarms$results)
 

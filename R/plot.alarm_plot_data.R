@@ -45,8 +45,7 @@
 #' compiled_data <- compile_epi(epidemic_new, individual_data)
 #'
 #' # Evaluate alarm metrics
-#' results <- eval_metrics(compiled_data, thres = seq(0.1,0.6,by = 0.05),
-#'                   ScYr = c(2:3), yr.weights = c(1:2)/sum(c(1:2)))
+#' results <- eval_metrics(compiled_data, thres = seq(0.1,0.6,by = 0.05))
 #'
 #' # Generate plots
 #' plots <- plot(results$plot_data)
@@ -90,10 +89,10 @@ plot.alarm_plot_data <- function(x, ...) {
 
     p <- ggplot(year_data, aes(x = .data$Date)) +
       # Absenteeism percentage
-      geom_col(aes(y = .data$pct_absent * 100, fill = "Absenteeism (%)"), alpha = 0.7,
+      geom_area(aes(y = .data$pct_absent * 100, fill = "Absenteeism (%)"), alpha = 0.7,
                show.legend = FALSE) +
       # Lab confirmed cases
-      geom_col(aes(y = .data$lab_conf, fill = "Lab Confirmed Cases"), alpha = 0.7,
+      geom_area(aes(y = .data$lab_conf, fill = "Lab Confirmed Cases"), alpha = 0.7,
                show.legend = FALSE) +
       # Reference date
       geom_vline(data = dplyr::filter(year_data, .data$ref_date == 1),
