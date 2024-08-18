@@ -6,10 +6,13 @@ knitr::opts_chunk$set(
 )
 
 
-## ----setup--------------------------------------------------------------------
+## ----setup, 	message = FALSE, warning = FALSE---------------------------------
 
-library(devtools)
-install_github("vjoshy/ATQ_Surveillance_Package")
+tryCatch({
+  devtools::install_github("vjoshy/ATQ_Surveillance_Package")
+}, error = function(e) {
+  message("Unable to install package from GitHub. Using local version if available.")
+})
 
 library(ATQ)
 

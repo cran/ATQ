@@ -1,6 +1,6 @@
 Package: ATQ
 Title: Alert Time Quality - Evaluating Timely Epidemic Metrics
-Version: 0.2.2
+Version: 0.2.3
 Date: 2024-07-28
 Authors@R: c(
     person("Vinay", "Joshy", email = "joshy@uoguelph.ca", role = c("aut", "cre", "cph")),
@@ -21,7 +21,7 @@ Depends: R (>= 2.10)
 VignetteBuilder: knitr
 BugReports: https://github.com/vjoshy/ATQ_Surveillance_Package/issues
 NeedsCompilation: no
-Packaged: 2024-07-28 17:54:51 UTC; Vinay
+Packaged: 2024-08-18 20:31:11 UTC; Vinay
 Author: Vinay Joshy [aut, cre, cph],
   Zeny Feng [aut, cph, ths],
   Lorna Deeth [aut, cph, ths],
@@ -29,4 +29,4 @@ Author: Vinay Joshy [aut, cre, cph],
   Kayla Vanderkruk [aut, com, ctb]
 Maintainer: Vinay Joshy <joshy@uoguelph.ca>
 Repository: CRAN
-Date/Publication: 2024-07-29 08:20:02 UTC
+Date/Publication: 2024-08-18 20:50:02 UTC
